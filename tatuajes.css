@@ -1,0 +1,428 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.banner {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  background-color: white;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('img/artistas.jpg') center center/cover no-repeat;
+  filter: brightness(50%);
+  z-index: 0;
+}
+
+.banner > * {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.banner-content h1 {
+  font-family: 'New Rocker', cursive;
+  font-size: 5rem;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.banner-content p {
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  text-transform: none;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  padding: 12px 0;
+}
+
+@media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #000;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+      }
+}
+
+.nav-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 70px;
+  width: 100%;
+}
+
+.nav-content a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s ease;
+  letter-spacing: 3px;
+}
+
+.nav-content a:hover {
+  color: rgb(161, 13, 13);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgb(0, 0, 0);
+  padding: 10px 0;
+  z-index: 1001;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  text-transform: none;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+}
+
+.dropdown-content a:hover {
+  background-color: #000000;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.logo-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.artistas-section {
+  background-color: #ffffff;
+  padding: 80px 10px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.artistas-header p {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgb(47, 44, 44);
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: none;
+  font-style: italic;
+  margin-top: 0;
+}
+
+.artistas-header h2 {
+  font-size: 56px;
+  color: black;
+  letter-spacing: 2px;
+  font-family: 'New Rocker', cursive;
+  margin-bottom: 40px;
+}
+
+.artistas-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.artista-card {
+  width: 360px;
+  height: 450px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1.5s;
+  transform-style: preserve-3d;
+}
+
+.artista-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: none;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-back {
+  background-color: #111;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(5px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.card-info {
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  border-radius: none;
+}
+
+.card-info h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  letter-spacing: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.card-info p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: initial;
+}
+
+.descripcion-final {
+  font-size: 18px;
+  margin-top: 40px;
+  font-style: italic;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgb(47, 44, 44);
+  text-transform: initial;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.tipos-tatuajes {
+  margin-top: 0;
+  padding: 60px 20px;
+  background-color: #fff;
+  color: black;
+  text-align: center;
+}
+
+.tipos-tatuajes h2 {
+  font-size: 56px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'New Rocker', cursive;
+  color: black;
+}
+
+.tipos-tatuajes .tipo {
+  margin-bottom: 60px;
+}
+
+.tipos-tatuajes .tipo h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+.tipos-tatuajes .tipo .descripcion-estilo {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  text-transform: initial;
+}
+
+.tipos-tatuajes .galeria {
+  display: flex;
+  justify-content: center;
+  gap: 65px;
+  flex-wrap: wrap;
+}
+
+.tipos-tatuajes .galeria img {
+  width: 350px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.tipos-tatuajes .galeria img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2) saturate(1.3);
+  cursor: pointer;
+}
+
+@media (max-width: 960px) {
+  .tipos-tatuajes .galeria img {
+    width: 90%;
+    height: auto;
+  }
+}
+
+footer {
+    background-color: #000; 
+    color: #fff; 
+    padding: 40px 20px;
+    line-height: 1.6;
+    border-top: 1px solid #333;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 20px;
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+    font-size: 1.1em;
+    font-family: 'New Rocker', cursive;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+}
+
+.footer-section ul li a:hover {
+    color: rgb(161, 13, 13);
+}
+
+.footer-section p {
+    color: #999;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;  
+}
+
+.footer-section.connect {
+    text-align: right; 
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    text-align: center;
+    font-size: 0.8em;
+    color: #777;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+}
