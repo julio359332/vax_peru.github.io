@@ -1,0 +1,342 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.banner {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  background-color: white;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('img/cotizar.jpeg') center center/cover no-repeat;
+  filter: brightness(50%);
+  z-index: 0;
+}
+
+.banner > * {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.banner-content h1 {
+  font-family: 'New Rocker', cursive;
+  font-size: 5rem;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.banner-content p {
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  text-transform: none;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  padding: 12px 0;
+}
+
+@media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #000;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+      }
+}
+
+.nav-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 70px;
+  width: 100%;
+}
+
+.nav-content a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s ease;
+  letter-spacing: 3px;
+}
+
+.nav-content a:hover {
+  color: rgb(161, 13, 13);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgb(0, 0, 0);
+  padding: 10px 0;
+  z-index: 1001;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  text-transform: none;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+}
+
+.dropdown-content a:hover {
+  background-color: #000000;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.logo-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.cotizar-section {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cotizar-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  color:rgb(0, 0, 0);
+}
+
+.cotizar-subtitle {
+  font-size: 1rem;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  text-transform: initial;
+  color:rgb(47, 44, 44);
+}
+
+.cotizar-form {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  color:rgb(0, 0, 0);
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1 1 100%;
+  margin-bottom: 20px;
+}
+
+.form-row .form-group {
+  flex: 1 1 calc(50% - 10px);
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="file"] {
+  padding: 10px;
+  border-radius: 4px;
+  border-color: rgb(47, 44, 44);
+}
+
+.privacy-label {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.privacy-label a {
+  color: rgb(161, 13, 13);
+  text-decoration: underline;
+}
+
+.submit-btn {
+  display: block;
+  width: 20%;
+  padding: 14px;
+  background-color: rgb(161, 13, 13) ;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+footer {
+    background-color: #000; 
+    color: #fff; 
+    padding: 40px 20px;
+    line-height: 1.6;
+    border-top: 1px solid #333;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 20px;
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+    font-size: 1.1em;
+    font-family: 'New Rocker', cursive;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+}
+
+.footer-section ul li a:hover {
+    color: rgb(161, 13, 13);
+}
+
+.footer-section p {
+    color: #999;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;  
+}
+
+.footer-section.connect {
+    text-align: right; 
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    text-align: center;
+    font-size: 0.8em;
+    color: #777;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+}
